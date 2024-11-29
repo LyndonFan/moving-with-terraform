@@ -1,5 +1,5 @@
 # Create an S3 Bucket
-resource "aws_s3_bucket" "uniqe_bucket" {
+resource "aws_s3_bucket" "unique_bucket" {
   bucket = "my-bucket"
 
   tags = {
