@@ -6,7 +6,16 @@ resource "aws_route53_zone" "internal" {
   }
 }
 
-resource "aws_route53_record" "primary" {
+resource "aws_route53_record" "old_primary" {
+  count   = var.old_primary_dns_name != "" ? 1 : 0
+  zone_id = aws_route53_zone.internal.zone_id
+  name    = "${var.old_primary_dns_name}.internal"
+  type    = "A"
+  ttl     = 300
+  records = [aws_instance.webserver.private_ip]
+}
+
+resource "aws_route53_record" "new_primary" {
   zone_id = aws_route53_zone.internal.zone_id
   name    = "${var.primary_dns_name}.internal"
   type    = "A"

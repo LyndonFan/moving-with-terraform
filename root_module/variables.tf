@@ -1,9 +1,14 @@
-variable "primary_dns_name" {
+variable "old_primary_dns_name" {
+  type = string
+  nullable = true
+}
+
+variable "secondary_dns_name" {
   type = string
   nullable = false
 }
 
-variable "secondary_dns_name" {
+variable "primary_dns_name" {
   type = string
   nullable = false
 }
