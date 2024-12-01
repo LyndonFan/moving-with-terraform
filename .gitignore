@@ -2,3 +2,7 @@
 .terraform.lock.hcl
 *.tfstate
 *.tfstate*
+*.key
+*.crt
+*.csr
+*.pem
